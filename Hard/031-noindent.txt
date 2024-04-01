@@ -1,0 +1,155 @@
+[ RawBlock (Format "tex") "\\documentclass{article}"
+, Para [ Str "\\begin{document}" ]
+, Para
+    [ Str "Sometimes"
+    , Space
+    , Str "we"
+    , Space
+    , Str "do"
+    , Space
+    , Str "not"
+    , Space
+    , Str "want"
+    , Space
+    , Str "the"
+    , Space
+    , Str "text"
+    , Space
+    , Str "following"
+    , Space
+    , Str "a"
+    , Space
+    , Str "code"
+    , Space
+    , Str "chunk"
+    , Space
+    , Str "to"
+    , Space
+    , Str "be"
+    , Space
+    , Str "indented"
+    , Space
+    , Str "as"
+    , Space
+    , Str "a"
+    , Space
+    , Str "paragraph."
+    , Space
+    , Str "We"
+    , Space
+    , Str "can"
+    , Space
+    , Str "use"
+    , Space
+    , Str "the"
+    , Space
+    , RawInline (Format "tex") "\\texttt{document}"
+    , Space
+    , Str "hook"
+    , Space
+    , Str "to"
+    , Space
+    , Str "add"
+    , Space
+    , RawInline
+        (Format "tex") "\\texttt{\\textbackslash{}noindent}"
+    , Space
+    , Str "after"
+    , Space
+    , Str "each"
+    , Space
+    , Str "chunk."
+    , Space
+    , Str "For"
+    , Space
+    , Str "example:"
+    ]
+, Para
+    [ Str "<<setup,"
+    , Space
+    , Str "tidy.opts=list(width.cutoff=60)>>="
+    , SoftBreak
+    , Str "library(knitr)"
+    , SoftBreak
+    , Str "knit_hooks$set(document"
+    , Space
+    , Str "="
+    , Space
+    , Str "function(x)"
+    , Space
+    , Str "{"
+    , SoftBreak
+    , Str "gsub("
+    , Quoted
+        SingleQuote
+        [ Str "(\\\\end\\{knitrout\\}["
+        , RawInline (Format "tex") "\\n"
+        , Str "]+)"
+        ]
+    , Str ","
+    , Space
+    , Quoted SingleQuote [ Str "\\1\\\\noindent" ]
+    , Str ","
+    , Space
+    , Str "paste(x,"
+    , Space
+    , Str "collapse"
+    , Space
+    , Str "="
+    , Space
+    , Quoted SingleQuote [ RawInline (Format "tex") "\\n" ]
+    , Str "))"
+    , SoftBreak
+    , Str "})"
+    , SoftBreak
+    , Str "@"
+    ]
+, Para
+    [ Str "See"
+    , Space
+    , Str "if"
+    , Space
+    , Str "it"
+    , Space
+    , Str "works."
+    , SoftBreak
+    , Str "<<>>="
+    , SoftBreak
+    , Str "#"
+    , Space
+    , Str "hello"
+    , Space
+    , Str "world"
+    , SoftBreak
+    , Str "1+1"
+    , SoftBreak
+    , Str "@"
+    , SoftBreak
+    , Str "I\8217m"
+    , Space
+    , Str "not"
+    , Space
+    , Str "indented."
+    , Space
+    , Str "That"
+    , Space
+    , Str "is"
+    , Space
+    , Str "great."
+    ]
+, Para
+    [ Str "A"
+    , Space
+    , Str "new"
+    , Space
+    , Str "paragraph"
+    , Space
+    , Str "is"
+    , Space
+    , Str "indented"
+    , Space
+    , Str "again."
+    , SoftBreak
+    , Str "\\end{document}"
+    ]
+]

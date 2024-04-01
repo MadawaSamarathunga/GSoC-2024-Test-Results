@@ -1,0 +1,4 @@
+[ RawBlock
+    (Format "tex")
+    "\\documentclass{article}\n\n\\begin{document}\n\nWe want the file extension when including a figure into LaTeX.\n\n<<setup>>=\nlibrary(knitr)\nhook_plot = knit_hooks$get('plot')\nknit_hooks$set(plot = function(x, options) {\n   # if x is foo.pdf, make it foo.pdf.whatever so the plot hook removes the extension internally\n  x = paste(c(x, 'whatever'), collapse = '.')\n  hook_plot(x, options)\n})\n@\n\nYou should see \\textbackslash{}includegraphics\\{test.pdf\\} instead of \\textbackslash{}includegraphics\\{test\\}.\n\n<<test-a>>=\n# pdf figure\nplot(1)\n@\n\n<<test-b, dev='png'>>=\n# png figure\nplot(2)\n@\n\n\\end{document}"
+]

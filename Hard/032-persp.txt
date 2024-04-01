@@ -1,0 +1,4 @@
+[ RawBlock
+    (Format "tex")
+    "\\documentclass{article}\n\n\\begin{document}\n\npersp() plots should appear here:\n\n<<persp-plot, cache=TRUE>>=\nx <- seq(-10, 10, length= 30)\ny <- x\nf <- function(x,y) { r <- sqrt(x^2+y^2); 10 * sin(r)/r }\nz <- outer(x, y, f)\nz[is.na(z)] <- 1\npersp(x, y, z, theta = 30, phi = 30)\n@\n\n\\end{document}"
+]

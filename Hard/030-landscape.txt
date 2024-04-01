@@ -1,0 +1,4 @@
+[ RawBlock
+    (Format "tex")
+    "\\documentclass{article}\n\\usepackage{lscape}\n\\begin{document}\n\nSee if the landscape environment works.\n\nhello world\n\n\\newpage\n\\begin{landscape}\n\\begin{table}\\centering\n<<results='asis'>>=\nlibrary(knitr)\nkable(head(iris))\n@\n\\end{table}\n\\end{landscape}\n\\newpage\n\nhello again\n\n<<results='asis', message=FALSE, warning=FALSE>>=\nlibrary(Hmisc)\nlatex(head(iris), file='', landscape=TRUE)\n@\n\n\\end{document}"
+]
